@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball Evolution</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="favoritos.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Dragon Ball Evolution</h1>
+    </header>
+ 
+    <img id="favoriteIcon" src="" alt="favoritar" onclick="toggleFavorite('DragonballEvolution')">
+  
+    
+    <section class="filme-details">
+        <div class="filme-poster">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/a/a6/DragonballEvolution.jpg/230px-DragonballEvolution.jpg" alt="Poster do Filme">
+        </div>
+        
+
+        <div class="filme-info">
+            <h2>Informações do Filme</h2>
+            <hr>
+            <p><strong>Diretor:</strong> <a href="https://pt.wikipedia.org/wiki/James_Wong" target="_blank" rel="external">James Wong</a></p>
+            <hr>
+            <p><strong>Elenco:</strong>
+            <ul>
+                <li><a href="https://pt.wikipedia.org/wiki/Justin_Chatwin" target="_blank" rel="external">Justin Chatwin</a> - <a href="https://pt.wikipedia.org/wiki/Goku" target="_blank" rel="external">Son Goku</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Chow_Yun-fat" target="_blank" rel="external">Chow Yun-Fat</a> - <a href="https://pt.wikipedia.org/wiki/Mestre_Kame" target="_blank" rel="external">Mestre Kame</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Emmy_Rossum" target="_blank" rel="external">Emmy Rossum</a> - <a href="https://pt.wikipedia.org/wiki/Bulma" target="_blank" rel="external">Bulma</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Jamie_Chung" target="_blank" rel="external">Jamie Chung</a> - <a href="https://pt.wikipedia.org/wiki/Lista_de_personagens_de_Dragon_Ball#Chi-Chi" target="_blank" rel="external">Chi-Chi</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/James_Marsters" target="_blank" rel="external">James Marsters</a> - <a href="https://pt.wikipedia.org/wiki/Piccolo_(Dragon_Ball)" target="_blank" rel="external">Piccolo</a></li>
+                
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Joon Park</a> - <a href="https://pt.wikipedia.org/wiki/Yamcha" target="_blank" rel="external">Yamcha</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Eriko_Tamura" target="_blank" rel="external">Eriko Tamura</a> - <a href="https://pt.wikipedia.org/wiki/Lista_de_personagens_de_Dragon_Ball#Pilaf" target="_blank" rel="external">Mai</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Randall_Duk_Kim" target="_blank" rel="external">Randall Duk Kim</a> - <a href="https://pt.wikipedia.org/wiki/Son_Gohan" target="_blank" rel="external">Son Gohan</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Ernie_Hudson" target="_blank" rel="external">Ernie Hudson</a> - <a href="seminformacoes.html" target="_blank" rel="next">Sifu Norris</a></li>
+            
+            </ul>
+            <hr>
+        </p>
+            <p><strong>Gênero:</strong> Aventura, Fantasia Científica, Ação</p>
+            <hr>
+            <p><strong>Sinopse:</strong> A história acompanha Goku, um jovem adotado e treinado pelo mestre das artes marciais e seu avô Gohan. Uma noite, enquanto Goku estava na festa da sua amada, Chi-Chi, seu avô é atacado por Piccolo, que estava à procura de uma das sete Esferas do Dragão. Goku volta e encontra seu avô ferido e Gohan acaba morrendo em seus braços, mas não antes dele dizer para Goku procurar o Mestre Kame, e também, um aviso secreto relacionado ao eclipse, as Esferas do Dragão, Piccolo e seu servo perdido, Oozaru.</p>
+            <hr>
+            <h2>Trailer</h2>
+        <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/T4_wHfz2qUA?si=fBG30pb95vNv1LbO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+        <br>
+        <hr>
+            <h2>Média de notas</h2>
+        <p id="media-avaliacoes">Média de Avaliações: 0.0</p>
+
+        
+        <form id="avaliacao-form">
+            <label for="nota">Insira sua avaliação (0-5):</label>
+            <input type="number" id="nota" name="nota" min="0" max="5" step="1.0">
+            <button type="submit">Avaliar</button>
+        </form>
+    
+        
+        
+        
+        <div id="avaliacao-grafico">
+            <div class="barra">
+                <div class="nota">5</div>
+                <div class="barra-interna" id="barra-5"></div>
+                <div class="contador" id="contador-5">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">4</div>
+                <div class="barra-interna" id="barra-4"></div>
+                <div class="contador" id="contador-4">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">3</div>
+                <div class="barra-interna" id="barra-3"></div>
+                <div class="contador" id="contador-3">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">2</div>
+                <div class="barra-interna" id="barra-2"></div>
+                <div class="contador" id="contador-2">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">1</div>
+                <div class="barra-interna" id="barra-1"></div>
+                <div class="contador" id="contador-1">0</div>
+            </div>
+        </div>
+        <script src="avaliacaodenota.js"></script>
+        
+        <abbr title="voltar para página inicial"><a href="index.html" target="_self" rel="preview"><img src="https://cdn-icons-png.flaticon.com/256/1/1216.png" alt="imagem" height="50"></a></abbr>
+        </div>
+    </section>
+</body>
+</html>
