@@ -259,7 +259,7 @@ input[type=radio] + label, input[type=checkbox] + label {
 }
 
 .barra-interna {
-    position: absolute;
+    position: relative;
     background-color: #fffb00;
     margin-left: 15px;
     height: 30px;
