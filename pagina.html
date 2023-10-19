@@ -64,11 +64,16 @@
         <p id="media-avaliacoes">Média de Avaliações: 0.0</p>
 
         
+        <div class="botao-avaliacao">
         <form id="avaliacao-form">
-            <label for="nota">Insira sua avaliação (0-5):</label>
-            <input type="number" id="nota" name="nota" min="0" max="5" step="1.0">
-            <button type="submit">Avaliar</button>
+            <label for="nota">Insira sua avaliação (1-5):</label>
+            <input type="number" id="nota" name="nota" min="1" max="5" step="1.0">
+            <button type="submit" id="enviar-avaliacao">Avaliar</button>
+           
+
         </form>
+        <button id="reavaliar-btn" style="display: none">Reavaliar</button>
+        </div>
     
         
         
