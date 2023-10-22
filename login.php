@@ -61,7 +61,7 @@ include('conexao.php');
                 if ($quantidade == 1) {
                     $usuario = $sql_query->fetch_assoc();
         
-                    $_SESSION['IdUsuario'] = $usuario['IdUsuario'];
+                    $_SESSION['ID'] = $usuario['ID'];
                     $_SESSION['nome'] = $usuario['nome'];
                     $_SESSION['email'] = $usuario['email'];
                     $_SESSION['senha'] = $usuario['senha'];
