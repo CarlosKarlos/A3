@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Caminho para El Dorado</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="favoritos.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>O Caminho para El Dorado</h1>
+    </header>
+ 
+   
+    <section class="filme-details">
+        <div class="filme-poster">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/e/ea/The_road_to_el_dorado_poster_promocional.jpg" alt="Poster do Filme">
+        </div>
+        
+
+        <div class="filme-info">
+            <h2>Informações do Filme</h2>
+            <hr>
+            <p><strong>Diretor:</strong> <a href="https://pt.wikipedia.org/wiki/Bibo_Bergeron" target="_blank" rel="external">Bibo Bergeron,</a><a href="seminformacoes.html" target="_blank" rel="external">Don Paul</a></p>
+            <hr>
+            <p><strong>Elenco:</strong>
+            <ul>
+                <li><a href="https://pt.wikipedia.org/wiki/Kevin_Kline" target="_blank" rel="external">Kevin Kline</a> - <a href="seminformacoes.html" target="_blank" rel="external">Túlio</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Kenneth_Branagh" target="_blank" rel="external">Kenneth Branagh</a> - <a href="seminformacoes.html" target="_blank" rel="external">Miguel</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Rosie_Perez" target="_blank" rel="external">Rosie Perez</a> - <a href="seminformacoes.html" target="_blank" rel="external">Chel</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Armand_Assante" target="_blank" rel="external">Armand Assante</a> - <a href="seminformacoes.html" target="_blank" rel="external">Tzekel-Kan</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Edward_James_Olmos" target="_blank" rel="external">Edward James Olmos</a> - <a href="seminformacoes.html" target="_blank" rel="external">Chefe Tannabok</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Roger_Rees" target="_blank" rel="next">Roger Rees</a> - <a href="seminformacoes.html" target="_blank" rel="external">Pip</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Jim_Cummings" target="_blank" rel="external">Jim Cummings</a> - <a href="https://pt.wikipedia.org/wiki/Hern%C3%A1n_Cort%C3%A9s" target="_blank" rel="external">Hernán Cortés</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Frank_Welker" target="_blank" rel="external">Frank Welker</a> - <a href="seminformacoes.html" target="_blank" rel="external">Altivo</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Tobin_Bell" target="_blank" rel="external">Tobin Bell</a> - <a href="seminformacoes.html" target="_blank" rel="next">Zaragoza</a></li>
+            
+            </ul>
+            <hr>
+        </p>
+            <p><strong>Gênero:</strong> Aventura, Comédia</p>
+            <hr>
+            <p><strong>Sinopse:</strong> O filme se passa no século XVI, mais especificamente no ano de 1519 no município espanhol de Sevilha, sul do país. A trama desenvolve-se ao redor dos dois personagens principais, Túlio e Miguel, que, durante um jogo em que usam "dados viciados", ganham um mapa que mostra a suposta localização de Eldorado, cidade de ouro lendária no Novo Mundo. No entanto, a trapaça de ambos os amigos é logo descoberta e como resultado, eles acabam por se tornarem clandestinos seguindo a frota de Hernán Cortés para conquistar o México. Eles são descobertos, porém conseguem escapar em um barco e com um cavalo chamado Altivo. Chegando em Eldorado, os dois são confundidos com deuses.</p>
+            <hr>
+            <h2>Trailer</h2>
+        <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Su7g8JVY0xI?si=MWl6LnSLbksy2hfa&amp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+        <br>
+        <hr>
+            <h2>Média de notas</h2>
+        <p id="media-avaliacoes">Média de Avaliações: 0.0</p>
+
+        
+        <div class="botao-avaliacao">
+        <form id="avaliacao-form">
+            <label for="nota">Insira sua avaliação (1-5):</label>
+            <input type="number" id="nota" name="nota" min="1" max="5" step="1.0">
+            <button type="submit" id="enviar-avaliacao">Avaliar</button>
+           
+
+        </form>
+        <button id="reavaliar-btn" style="display: none">Reavaliar</button>
+        </div>
+    
+        
+        
+        
+        <div id="avaliacao-grafico">
+            <div class="barra">
+                <div class="nota">5</div>
+                <div class="barra-interna" id="barra-5"></div>
+                <div class="contador" id="contador-5">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">4</div>
+                <div class="barra-interna" id="barra-4"></div>
+                <div class="contador" id="contador-4">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">3</div>
+                <div class="barra-interna" id="barra-3"></div>
+                <div class="contador" id="contador-3">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">2</div>
+                <div class="barra-interna" id="barra-2"></div>
+                <div class="contador" id="contador-2">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">1</div>
+                <div class="barra-interna" id="barra-1"></div>
+                <div class="contador" id="contador-1">0</div>
+            </div>
+        </div>
+        <script src="avaliacoesdenota.js"></script>
+        
+        <abbr title="voltar para página inicial"><a href="index.html" target="_self" rel="preview"><img src="https://cdn-icons-png.flaticon.com/256/1/1216.png" alt="imagem" height="50"></a></abbr>
+        </div>
+    </section>
+</body>
+</html>

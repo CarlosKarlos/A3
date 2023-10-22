@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidade dos Anjos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="favoritos.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Cidade dos Anjos</h1>
+    </header>
+ 
+    
+  
+    
+    <section class="filme-details">
+        <div class="filme-poster">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/6/6d/City_Angels_poster.jpg" alt="Poster do Filme">
+        </div>
+        
+
+        <div class="filme-info">
+            <h2>Informações do Filme</h2>
+            <hr>
+            <p><strong>Diretor:</strong> <a href="https://pt.wikipedia.org/wiki/Brad_Silberling" target="_blank" rel="external">Brad Silberling</a></p>
+            <hr>
+            <p><strong>Elenco:</strong>
+            <ul>
+                <li><a href="https://pt.wikipedia.org/wiki/Nicolas_Cage" target="_blank" rel="next">Nicolas Cage</a> - <a href="seminformacoes.html" target="_blank" rel="external">Seth Plate</a></li>
+
+                <li><a href="https://pt.wikipedia.org/wiki/Meg_Ryan" target="_blank" rel="next">Meg Ryan</a> - <a href="seminformacoes.html" target="_blank" rel="external">Maggie Rice</a></li>
+
+                <li><a href="https://pt.wikipedia.org/wiki/Andre_Braugher" target="_blank" rel="next">Andre Braugher</a> - <a href="seminformacoes.html" target="_blank" rel="external">Cassiel</a></li>
+
+                <li><a href="https://pt.wikipedia.org/wiki/Dennis_Franz" target="_blank" rel="next">Dennis Franz</a> - <a href="seminformacoes.html" target="_blank" rel="external">Nathaniel Messinger</a></li>
+
+                <li><a href="https://pt.wikipedia.org/wiki/Colm_Feore" target="_blank" rel="next">Colm Feore</a> - <a href="seminformacoes.html" target="_blank" rel="external">Jordan Ferris</a></li>
+
+                <li><a href="https://pt.wikipedia.org/wiki/Robin_Bartlett" target="_blank" rel="next">Robin Bartlett</a> - <a href="seminformacoes.html" target="_blank" rel="external">Anne</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Joanna Merlin</a> - <a href="seminformacoes.html" target="_blank" rel="external">Teresa Messinger</a></li>
+            </ul>
+            <hr>
+        </p>
+            <p><strong>Gênero:</strong> Romance</p>
+            <hr>
+            <p><strong>Sinopse:</strong> Seth é um anjo encarregado de tomar conta de Los Angeles, que se apaixona pela mortal Maggie, uma cirurgiã. Ela fica transtornada ao perder um paciente na mesa de cirurgia e Seth acompanha seu sofrimento e desenvolve por ela sentimentos que ameaçam sua condição imortal. Para viver esse amor intensamente, Seth considera desistir da eternidade.</p>
+            <hr>
+            <h2>Trailer</h2>
+        <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wCrcDidiGJs?si=12ae7jvd-PNI3zz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+        <br>
+        <hr>
+            <h2>Média de notas</h2>
+        <p id="media-avaliacoes">Média de Avaliações: 0.0</p>
+
+        
+        <div class="botao-avaliacao">
+        <form id="avaliacao-form">
+            <label for="nota">Insira sua avaliação (1-5):</label>
+            <input type="number" id="nota" name="nota" min="1" max="5" step="1.0">
+            <button type="submit" id="enviar-avaliacao">Avaliar</button>
+           
+
+        </form>
+        <button id="reavaliar-btn" style="display: none">Reavaliar</button>
+        </div>
+    
+        
+        
+        
+        <div id="avaliacao-grafico">
+            <div class="barra">
+                <div class="nota">5</div>
+                <div class="barra-interna" id="barra-5"></div>
+                <div class="contador" id="contador-5">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">4</div>
+                <div class="barra-interna" id="barra-4"></div>
+                <div class="contador" id="contador-4">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">3</div>
+                <div class="barra-interna" id="barra-3"></div>
+                <div class="contador" id="contador-3">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">2</div>
+                <div class="barra-interna" id="barra-2"></div>
+                <div class="contador" id="contador-2">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">1</div>
+                <div class="barra-interna" id="barra-1"></div>
+                <div class="contador" id="contador-1">0</div>
+            </div>
+        </div>
+        <script src="avaliacaodenota.js"></script>
+        
+        <abbr title="voltar para página inicial"><a href="index.html" target="_self" rel="preview"><img src="https://cdn-icons-png.flaticon.com/256/1/1216.png" alt="imagem" height="50"></a></abbr>
+        </div>
+    </section>
+</body>
+</html>

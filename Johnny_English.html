@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny English 3.0</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="favoritos.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Johnny English 3.0</h1>
+    </header>
+ 
+    
+    
+    <section class="filme-details">
+        <div class="filme-poster">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/f/fc/Johnny_English_Strikes_Again_poster.jpg" alt="Poster do Filme">
+        </div>
+        
+
+        <div class="filme-info">
+            <h2>Informações do Filme</h2>
+            <hr>
+            <p><strong>Diretor:</strong> <a href="https://pt.wikipedia.org/wiki/David_Kerr_(diretor)" target="_blank" rel="external">David Kerr</a></p>
+            <hr>
+            <p><strong>Elenco:</strong>
+            <ul>
+                <li><a href="https://pt.wikipedia.org/wiki/Rowan_Atkinson" target="_blank" rel="external">Rowan Atkinson</a> - <a href="https://pt.wikipedia.org/wiki/Johnny_English" target="_blank" rel="external">Johnny English</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Olga_Kurylenko" target="_blank" rel="external">Olga Kurylenko</a> - <a href="seminformacoes.html" target="_blank" rel="external">Ophelia</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Ben_Miller" target="_blank" rel="external">Ben Miller</a> - <a href="seminformacoes.html" target="_blank" rel="external">Angus Bough</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Emma_Thompson" target="_blank" rel="external">Emma Thompson</a> - <a href="https://pt.wikipedia.org/wiki/Primeiro-ministro_do_Reino_Unido" target="_blank" rel="external">Primeira-Ministra Britânica</a></li>
+                
+                <li><a href="https://pt.wikipedia.org/wiki/Jake_Lacy" target="_blank" rel="external">Jake Lacy</a> - <a href="seminformacoes.html" target="_blank" rel="external">Jason Volta</a></li>
+                
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Pippa Bennett-Warner</a> - <a href="seminformacoes.html" target="_blank" rel="external">Lesley</a></li>
+                
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Miranda Hennessy</a> - <a href="seminformacoes.html" target="_blank" rel="external">Tara</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Irena Tyshyna</a> - <a href="seminformacoes.html" target="_blank" rel="external">Viola Lynch</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">David Mumeni</a> - <a href="seminformacoes.html" target="_blank" rel="external">Fabian</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Tuncay Gunes</a> - <a href="seminformacoes.html" target="_blank" rel="external">Convidado do Ted</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Samantha Russell</a> - <a href="https://pt.wikipedia.org/wiki/Lista_de_primeiros-ministros_da_Su%C3%A9cia" target="_blank" rel="external">Primeira-Ministra Sueca</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Nick Owenford</a> - <a href="seminformacoes.html" target="_blank" rel="external">Assessor Australiano</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Junichi Kajioka</a> - <a href="seminformacoes.html" target="_blank" rel="external">Diplomata Japonês</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Matthew Beard</a> - <a href="seminformacoes.html" target="_blank" rel="external">"P"</a></li>
+
+                <li><a href="seminformacoes.html" target="_blank" rel="next">Pauline McLynn</a> - <a href="seminformacoes.html" target="_blank" rel="external">Sra. Trattner</a></li>
+            </ul>
+            <hr>
+        </p>
+            <p><strong>Gênero:</strong> Aventura, Comédia</p>
+            <hr>
+            <p><strong>Sinopse:</strong> Johnny English entra em ação quando um hacker revela as identidades de agentes disfarçados na Grã-Bretanha. Como homem de poucas habilidades e métodos analógicos, Johnny precisa superar os desafios da tecnologia moderna para ter sucesso na missão.</p>
+            <hr>
+            <h2>Trailer</h2>
+        <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Ne9u-goR69Y?si=aCy3Tlm8smmReI5D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+        <br>
+        <hr>
+            <h2>Média de notas</h2>
+        <p id="media-avaliacoes">Média de Avaliações: 0.0</p>
+
+        
+        <div class="botao-avaliacao">
+        <form id="avaliacao-form">
+            <label for="nota">Insira sua avaliação (1-5):</label>
+            <input type="number" id="nota" name="nota" min="1" max="5" step="1.0">
+            <button type="submit" id="enviar-avaliacao">Avaliar</button>
+           
+
+        </form>
+        <button id="reavaliar-btn" style="display: none">Reavaliar</button>
+        </div>
+    
+        
+        
+        
+        <div id="avaliacao-grafico">
+            <div class="barra">
+                <div class="nota">5</div>
+                <div class="barra-interna" id="barra-5"></div>
+                <div class="contador" id="contador-5">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">4</div>
+                <div class="barra-interna" id="barra-4"></div>
+                <div class="contador" id="contador-4">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">3</div>
+                <div class="barra-interna" id="barra-3"></div>
+                <div class="contador" id="contador-3">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">2</div>
+                <div class="barra-interna" id="barra-2"></div>
+                <div class="contador" id="contador-2">0</div>
+            </div>
+            <div class="barra">
+                <div class="nota">1</div>
+                <div class="barra-interna" id="barra-1"></div>
+                <div class="contador" id="contador-1">0</div>
+            </div>
+        </div>
+        <script src="avaliacoesdenota.js"></script>
+        
+        <abbr title="voltar para página inicial"><a href="index.html" target="_self" rel="preview"><img src="https://cdn-icons-png.flaticon.com/256/1/1216.png" alt="imagem" height="50"></a></abbr>
+        </div>
+    </section>
+</body>
+</html>
