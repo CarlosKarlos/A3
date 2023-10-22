@@ -13,7 +13,7 @@ function calcularMedia(avaliacoes) {
 }
 // função para atualizar as barras quando avaliado
 function atualizarBarras() {
-    const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+    const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes ' + document.documentURI)) || [];
     
     // Inicialize contadores para cada nota
     const contadores = [0, 0, 0, 0, 0];
@@ -43,13 +43,13 @@ function atualizarBarras() {
 
 // Função para atualizar a média exibida na página
 function atualizarMedia() {
-    const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+    const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes ' + document.documentURI)) || [];
     const media = calcularMedia(avaliacoes).toFixed(1);
     document.getElementById('media-avaliacoes').textContent = `Média de Avaliações: ${media}`;
 }
 
 function usuarioJaAvaliou() {
-    return localStorage.getItem('avaliou') === 'true';
+    return localStorage.getItem('avaliacoes ' + document.documentURI) !== null;
 }
 
 
@@ -95,38 +95,17 @@ document.getElementById('avaliacao-form').addEventListener('submit', function (e
         return;
     }
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'atualizar_avaliacao.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const response = JSON.parse(xhr.responseText);
-
-            // Atualize a interface da página com os dados retornados pelo servidor
-            atualizarMedia(response.media);
-
-            // Outras atualizações da interface, se necessário
-
-            // Marque o usuário como tendo avaliado
-            localStorage.setItem('avaliou', 'true');
-
-            // Recarregue a página, se necessário
-            window.location.reload();
-        }
-    };
-
-    xhr.send(`nota=${nota}`);
-
     // Recupera as avaliações do armazenamento local
-    const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+    const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes ' + document.documentURI)) || [];
 
     // Adiciona a nova avaliação
     avaliacoes.push(nota);
 
     // Salva as avaliações atualizadas no armazenamento local
-    localStorage.setItem('avaliacoes', JSON.stringify(avaliacoes));
+    localStorage.setItem('avaliacoes ' + document.documentURI, JSON.stringify(avaliacoes));
 
-    
+    // Marque o usuário como tendo avaliado
+    // localStorage.setItem('avaliou', 'true');
 
     // Atualize a média e as barras como você já estava fazendo
     atualizarMedia();
@@ -141,7 +120,7 @@ document.getElementById('avaliacao-form').addEventListener('submit', function (e
 // Função para excluir a última nota da lista de avaliações
 function excluirUltimaAvaliacao() {
     // Recupera as avaliações do armazenamento local
-    let avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+    let avaliacoes = JSON.parse(localStorage.getItem('avaliacoes ' + document.documentURI)) || [];
 
     // Verifica se há avaliações para excluir
     if (avaliacoes.length > 0) {
@@ -149,7 +128,7 @@ function excluirUltimaAvaliacao() {
         avaliacoes.pop();
 
         // Salva as avaliações atualizadas no armazenamento local
-        localStorage.setItem('avaliacoes', JSON.stringify(avaliacoes));
+        localStorage.setItem('avaliacoes ' + document.documentURI, JSON.stringify(avaliacoes));
 
         // Atualize a média e as barras, se necessário
         atualizarMedia();
@@ -162,27 +141,16 @@ function excluirUltimaAvaliacao() {
 }
 
 document.getElementById('reavaliar-btn').addEventListener('click', function () {
-    var novaNota = parseFloat(document.getElementById('nova-nota').value);
-
-    if (isNaN(novaNota) || novaNota < 0 || novaNota > 5) {
-        alert('Insira uma nova nota válida entre 0 e 5.');
-        return;
-    }
-
-    // Aqui você chama a função de AJAX para reavaliar o filme
-    var movieId = 'DragonballEvolution'; // Substitua pelo ID do filme atual
-    reavaliarFilme(movieId, novaNota);
-
     // Remova a marcação que indica que o usuário já avaliou
-    localStorage.removeItem('avaliou');
+    // localStorage.removeItem('avaliou');
 
     // Limpe o campo de entrada da nota
     document.getElementById('nota').value = '';
 
     // Exiba ou ative o formulário de avaliação (dependendo de como você o escondeu anteriormente)
-    document.getElementById('avaliacao-form').style.display = 'block';
+    document.getElementById('avaliacao-form').style.display = 'block'; // ou 'inline', dependendo do estilo anterior
 
-    // Oculte ou desative o botão de reavaliar
+    // Oculte ou desative o botão de reavaliação
     this.style.display = 'none';
 
     // Redirecione para a mesma página para que o usuário possa reavaliar
@@ -191,28 +159,13 @@ document.getElementById('reavaliar-btn').addEventListener('click', function () {
     atualizarMedia();
     excluirUltimaAvaliacao();
 });
-
-
-    function reavaliarFilme(movieId, novaNota) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'reavaliar_filme.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        
-        // Parâmetros da solicitação (movieId é o ID do filme, novaNota é a nova nota)
-        var params = 'filmeID=' + encodeURIComponent(movieId) + '&novaNota=' + encodeURIComponent(novaNota);
-        
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // A solicitação foi concluída com sucesso, você pode atualizar a interface do usuário aqui
-                var response = JSON.parse(xhr.responseText);
-                if (response.reavaliado) {
-                    // O filme foi reavaliado com sucesso, atualize a interface de acordo
-                    // Por exemplo, atualize a média e a exibição da nota
-                } else {
-                    // Houve um erro ao reavaliar o filme, trate-o conforme necessário
-                }
-            }
-        };
-        
-        xhr.send(params);
-    }
+ // Verifique se o usuário já avaliou
+if (usuarioJaAvaliou()) {
+    // Se o usuário já avaliou, mostre o botão de reavaliar
+    document.getElementById('reavaliar-btn').style.display = 'block'; // ou 'inline', dependendo do estilo anterior
+} else {
+    // Se o usuário não avaliou, oculte o botão de reavaliar
+    document.getElementById('reavaliar-btn').style.display = 'none';
+}
+    atualizarBarras();
+    atualizarMedia();
