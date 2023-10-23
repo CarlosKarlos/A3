@@ -18,7 +18,7 @@ function initializeFavoriteIcons() {
     var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     var movieIcons = {
-        CaminhoparaElDorado: 'favoriteIconElDorado',
+        CaminhoparaElDorado: 'favoriteIconOCaminhoparaElDorado',
         // Defina ícones para outros filmes aqui
     };
 

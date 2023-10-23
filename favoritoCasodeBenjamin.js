@@ -18,7 +18,7 @@ function initializeFavoriteIcons() {
     var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     var movieIcons = {
-        CasodeBenjamin: 'favoriteIconCasodeBenjamin',
+        CasodeBenjamin: 'favoriteIconOCuriosoCasodeBenjaminButton',
         // Defina ícones para outros filmes aqui
     };
 

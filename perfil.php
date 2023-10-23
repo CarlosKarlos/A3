@@ -11,6 +11,9 @@ if (!isset($_SESSION['name'])) {
 $name = $_SESSION['name'];
 $email = $_SESSION['email'];
 ?>
+
+<a href="visualizar_filmes_favoritos.php" class="no-underline">Meus Filmes Favoritos</a>
+
 <!DOCTYPE html>
 <html>
 <head>

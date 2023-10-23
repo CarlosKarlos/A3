@@ -2,13 +2,32 @@
 session_start();
 
 // Verifique se o usuário está logado
-if (!isset($_SESSION["usuario"])) {
+if (!isset($_SESSION["usuarios.txt"])) {
     header("location: login.php"); // Redirecione para a página de login se o usuário não estiver logado
     exit();
 }
 
 // Obtém informações do usuário a partir da sessão
-$nomeUsuario = $_SESSION["usuario"];
+$nomeUsuario = $_SESSION["usuario.txt"];
+
+// Função para carregar os favoritos do arquivo "usuarios.txt" de um usuário
+function carregarFavoritos($name, $filename) {
+    $usuarios = file($filename, FILE_IGNORE_NEW_LINES);
+    $userIndex = array_search($name, $usuarios);
+    
+    if ($userIndex !== false) {
+        $favoritosIndex = $userIndex + 1;
+        $favoritos = explode(',', $usuarios[$favoritosIndex]);
+        return $favoritos;
+    } else {
+        return [];
+    }
+}
+
+$usuariosFile = "usuarios.txt";
+
+// Carregue a lista de favoritos
+$listaFavoritos = carregarFavoritos($nomeUsuario, $usuariosFile);
 ?>
 
 <!DOCTYPE html>
@@ -24,38 +43,12 @@ $nomeUsuario = $_SESSION["usuario"];
         
         <h3>Filmes Favoritos:</h3>
         <ul id="filmesFavoritosList">
-            <!-- Aqui serão exibidos os filmes favoritos -->
+            <?php foreach ($listaFavoritos as $filmeFavorito): ?>
+                <li><?php echo $filmeFavorito; ?></li>
+            <?php endforeach; ?>
         </ul>
 
         <a href="perfil.php">Voltar para o Perfil</a>
     </div>
-
-    <script>
-        // Função para atualizar a interface do usuário com base nos favoritos
-        function updateUI() {
-            var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            var filmesFavoritosList = document.getElementById('filmesFavoritosList');
-
-            // Limpe a lista atual de filmes favoritos
-            filmesFavoritosList.innerHTML = '';
-
-            // Verifique se há filmes favoritos
-            if (favorites.length === 0) {
-                var noFavoritesItem = document.createElement('li');
-                noFavoritesItem.textContent = 'Nenhum filme favorito encontrado.';
-                filmesFavoritosList.appendChild(noFavoritesItem);
-            } else {
-                // Adicione cada filme favorito à lista
-                favorites.forEach(function (movieId) {
-                    var filmeItem = document.createElement('li');
-                    filmeItem.textContent = movieId; // Aqui você pode substituir pelo título do filme
-                    filmesFavoritosList.appendChild(filmeItem);
-                });
-            }
-        }
-
-        // Chame a função de atualização da interface do usuário imediatamente após carregar a página
-        updateUI();
-    </script>
 </body>
 </html>
