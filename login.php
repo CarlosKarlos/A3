@@ -1,84 +1,57 @@
-<?php
-// iniciar conexao
-session_start();
-include('conexao.php');
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
     <style>
         body {
-            background-color: #f0f0f0;
-            text-align: center;
-            padding-top: 100px;
+            background-image: url('background.jpg'); /* Substitua 'background.jpg' pela sua imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        form {
-            background-color: #fff;
-            display: inline-block;
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
+            text-align: center;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+
+        .form-container {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .form-container input {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="post" action="login.php">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
-
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" required><br>
-
-        <input type="submit" name="submit" value="Login">
-    </form>
-
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-
-        //$users = file_get_contents("users.txt");
-        //$users = json_decode($users, true);
-
-        if (isset($_POST['email']) && isset($_POST['senha'])) {
-            $email = $conexao->real_escape_string($_POST['email']);
-            $senha = $conexao->real_escape_string($_POST['senha']);
-        
-            if (!empty($email) && !empty($senha)) {
-                //verifica se o login esta valido
-                $sql_code = "SELECT * FROM usuarios WHERE Email = '$email' AND Senha = '$senha'";
-                $sql_query = $conexao->query($sql_code) or die("Falha ao conectar ao banco de dados: " . $conexao->error);
-        
-                $quantidade = $sql_query->num_rows;
-        
-                if ($quantidade == 1) {
-                    $usuario = $sql_query->fetch_assoc();
-        
-                    $_SESSION['ID'] = $usuario['ID'];
-                    $_SESSION['nome'] = $usuario['nome'];
-                    $_SESSION['email'] = $usuario['email'];
-                    $_SESSION['senha'] = $usuario['senha'];
-                    echo "<p>Login realizado com sucesso!</p>";
-
-                    // Redirecionar para a página inicial após o login
-                    header("Location: carregando.php");
-                    exit();
-                } else {
-                    echo "<p>Email ou senha invalido.</p>";
-                    exit();
-                }
+    <div class="container">
+        <h1>Login</h1>
+        <div class="form-container">
+            <form method="post" action="processa_login.php">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <input type="submit" value="Entrar">
+            </form>
+        </div>
+        <div style="margin-top: 10px;">
+            <?php
+            if (isset($_SESSION['email'])) {
+                echo 'Você já está logado com o email ' . $_SESSION['email'] . '. <a href="index2.php">Ir para a página inicial</a>';
             }
-        }
-
-        echo "<p>Email ou senha incorretos.</p>";
-    }
-    ?>
+            ?>
+        </div>
+    </div>
 </body>
 </html>

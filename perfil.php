@@ -1,94 +1,136 @@
 <?php
 session_start();
 
-// Verifique se o usuário está logado
-if (!isset($_SESSION["usuario"])) {
-    header("Location: index.php");
-    exit();
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $password = $_POST["password"];
 
-// Obtém informações do usuário a partir da sessão
-$nomeUsuario = $_SESSION["usuario"];
-$emailUsuario = $_SESSION["email"];
-$avatarUsuario = isset($_SESSION["avatar"]) ? $_SESSION["avatar"] : "avatars/default-avatar.jpg";
+    // Verifique se o arquivo de usuários existe
+    if (file_exists("usuarios.txt")) {
+        // Leia o conteúdo do arquivo de usuários
+        $usuarios = file("usuarios.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-// Lista de avatares disponíveis
-$avatarOptions = [
-    "Avatar 1" => "avatars/Netflix-avatar-1.png",
-    "Avatar 2" => "avatars/Netflix-avatar-2.png",
-    "Avatar 3" => "avatars/Netflix-avatar-3.png",
-    "Avatar 4" => "avatars/Netflix-avatar-4.png",
-    "Avatar 5" => "avatars/Netflix-avatar-5.png",
-    "Avatar 6" => "avatars/Netflix-avatar-6.png",
-    "Avatar 7" => "avatars/Netflix-avatar-7.png",
-    "Avatar 8" => "avatars/Netflix-avatar-8.png",
-    "Avatar 9" => "avatars/Netflix-avatar-9.png",
-    "Avatar 10" => "avatars/Netflix-avatar-10.png",
-    "Avatar 11" => "avatars/Netflix-avatar-11.png",
-    "Avatar 12" => "avatars/Netflix-avatar-12.png",
-    "Avatar 13" => "avatars/Netflix-avatar-13.png",
-    "Avatar 14" => "avatars/Netflix-avatar-14.png",
-    "Avatar 15" => "avatars/Netflix-avatar-15.png",
-];
+        // Percorra as linhas do arquivo para verificar as credenciais
+        foreach ($usuarios as $linha) {
+            list($name, $email, $hashedPassword) = explode("|", $linha);
 
-// Função para atualizar o avatar do usuário
-function atualizarAvatar($avatarSelecionado) {
-    $_SESSION["avatar"] = $avatarSelecionado;
-}
+            if ($username  && password_verify($password, $hashedPassword)) {
+                // Credenciais corretas, inicie a sessão e armazene as informações do usuário
+                $_SESSION['name'] = $name;
+                $_SESSION['name'] = $name;
+                $_SESSION['email'] = $email;
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Verifica se o usuário deseja atualizar o avatar
-    if (isset($_POST["avatar"])) {
-        $avatarSelecionado = $_POST["avatar"];
-        atualizarAvatar($avatarSelecionado);
-        $avatarUsuario = $avatarSelecionado; // Atualiza o avatar exibido na página
+                // Redirecione para a página inicial (índice) ou para onde desejar
+                header("Location: index2.php");
+                exit();
+            }
+        }
     }
 
-    // Verifica se o usuário deseja atualizar o nome de usuário
-    if (isset($_POST["nomeUsuario"])) {
-        $novoNomeUsuario = $_POST["nomeUsuario"];
-        $_SESSION["usuario"] = $novoNomeUsuario;
-        $nomeUsuario = $novoNomeUsuario;
-    }
-
-    // Verifica se o usuário deseja atualizar o email
-    if (isset($_POST["emailUsuario"])) {
-        $novoEmailUsuario = $_POST["emailUsuario"];
-        $_SESSION["email"] = $novoEmailUsuario;
-        $emailUsuario = $novoEmailUsuario;
-    }
+    // Credenciais incorretas, exiba uma mensagem de erro
+    echo "Credenciais inválidas. <a href='login.php'>Tente novamente</a>";
 }
 ?>
-<!-- Aqui começa o HTML -->
-<a href="visualizar_filmes_favoritos.php" class="no-underline">Meus Filmes Favoritos</a>
-<!-- Aqui começa o código HTML -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Seu Perfil</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            background-image: url('background.jpg'); /* Substitua 'background.jpg' pela sua imagem de fundo */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-container h2 {
+            color: #800080; /* Cor roxa */
+        }
+
+        .profile-container img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .profile-container div {
+            margin-top: 20px;
+        }
+
+        .profile-container p {
+            font-size: 18px;
+        }
+
+        .profile-container label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .profile-container input[type="text"],
+        .profile-container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-container select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-container button {
+            background-color: #800080; /* Cor de fundo roxa */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="profile-container">
         <h2>Seu Perfil</h2>
-        <img src="<?php echo $avatarUsuario; ?>" alt="Avatar do Usuário" width="100" height="100">
+        <img src="<?php echo $avatarUsuario; ?>" alt="Avatar do Usuário">
         
         <div>
-            <p><strong>Nome de Usuário:</strong> <?php echo $nomeUsuario; ?></p>
+            <p><strong>Nome de Usuário:</strong> <?php echo $name; ?></p>
             <p><strong>Email:</strong> <?php echo $emailUsuario; ?></p>
         </div>
 
         <button id="editarPerfil">Editar Perfil</button>
-        <a href="sairPerfil.php" id="sairPerfil">Voltar à Pagina Inicial</a>
+        <a href="sairPerfil.php" id="sairPerfil">Voltar à Página Inicial</a>
 
         <form method="post" id="formularioEdicao" style="display: none;">
-            <label for="nomeUsuario">Nome de Usuário:</label>
-            <input type="text" name="nomeUsuario" id="nomeUsuario" value="<?php echo $nomeUsuario; ?>"><br>
+            <label for="novoNomeUsuario">Novo Nome de Usuário:</label>
+            <input type="text" name="novoNomeUsuario" id="novoNomeUsuario" value="<?php echo $name;  ?>"><br>
 
-            <label for="emailUsuario">Email:</label>
-            <input type="email" name="emailUsuario" value="<?php echo $emailUsuario; ?>"><br>
+            <label for="novoEmailUsuario">Novo Email:</label>
+            <input type="email" name="novoEmailUsuario" value="<?php echo $emailUsuario; ?>"><br>
 
-            <label for="avatar">Escolha um avatar:</label>
+            <label for="avatar">Escolha um novo avatar:</label>
             <select name="avatar" id="avatar">
                 <?php foreach ($avatarOptions as $avatarName => $avatarPath) { ?>
                     <option value="<?php echo $avatarPath; ?>" <?php echo ($avatarUsuario === $avatarPath) ? "selected" : ""; ?>><?php echo $avatarName; ?></option>
@@ -111,4 +153,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </script>
 </body>
 </html>
-

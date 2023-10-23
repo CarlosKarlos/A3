@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!DOCTYPE html>
+<html>
+<head>
     <title>Página Inicial</title>
     <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Importe o arquivo CSS externo -->
     <style>
@@ -8,7 +11,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            background-image: url("https://guiaderodas.com/wp-content/uploads/2018/05/cinema.jpg"); /* Caminho da imagem */
+            background-image: url("https://aventurasnahistoria.uol.com.br/media/stories/cinema-nacional-5-curiosidades-sobre-setima-arte-no-brasil/assets/5.gif"); /* Caminho da imagem */
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -41,25 +44,33 @@
         }
 
         .filme {
-            display: inline-block;
-            margin: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            text-align: center;
-        }
+        display: inline-block;
+        margin: 10px; /* Reduzi a margem para organização */
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 15px;
+        text-align: center;
+        width: 200px; /* Largura fixa para os filmes */
+    }
 
-        .filme img {
-            max-width: 100px;
-            display: block;
-            margin: 0 auto;
-        }
+    .filme img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
 
-        .filme a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            margin-top: 10px;
-        }
+    .filme h2 {
+        font-size: 16px; /* Tamanho da fonte para o título */
+        margin: 10px 0; /* Espaçamento entre o título e a imagem */
+    }
+
+    .filme a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        margin-top: 10px;
+        font-weight: bold; /* Texto em negrito para o link */
+    }
+
 
         /* Estilo para a palavra "Hora" */
         .destaque {
@@ -74,7 +85,7 @@
             session_start(); // Inicie a sessão (se ainda não estiver iniciada)
         }
         
-        // modifica os botoes dependendo do status de login
+        // Modifica os botões dependendo do status de login
         if (isset($_SESSION['ID'])) {
             echo '<a href="sair.php">Sair</a>';
             echo '<a href="perfil.php">Perfil</a>';
@@ -86,46 +97,57 @@
     </div>
 
     <div class="container">
-     <h1><span class="destaque">Em destaque hoje</span></h1>
+        <h1><span class="destaque">Em destaque hoje</span></h1>
 
-        <!-- Filme 1 -->
-        <div class="filme">
-            <img src="https://cdn-icons-png.flaticon.com/256/1/1216.png" alt="Filme 1">
-            <h2>Dragon Ball Evolution</h2>
-            <a href="pagina.html">Ver Detalhes</a>
-        </div>
+       <!-- Filme 1 -->
+<div class="filme">
+    <img src="https://upload.wikimedia.org/wikipedia/pt/6/6d/City_Angels_poster.jpg" alt="Filme 1">
+    <h2>Cidade dos Anjos</h2>
+    <a href="Cidade dos Anjos.html?filme=1">Ver Detalhes</a>
+</div>
 
-        <!-- Filme 2 -->
-        <div class="filme">
-            <img src="https://cdn-icons-png.flaticon.com/256/1/1216.png" alt="Filme 2">
-            <h2>Filme 2</h2>
-            <a href="pagina.html">Ver Detalhes</a>
-        </div>
+<!-- Filme 2 -->
+<div class="filme">
+    <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/a/a6/DragonballEvolution.jpg/230px-DragonballEvolution.jpg" alt="Filme 2">
+    <h2>DragonBallEvolution</h2>
+    <a href="pagina_filme.php?filme=2">Ver Detalhes</a>
+</div>
+
+<!-- Adicione links semelhantes para os outros filmes -->
+
+
 
         <!-- Filme 3 -->
         <div class="filme">
-            <img src="https://cdn-icons-png.flaticon.com/256/1/1216.png" alt="Filme 3">
-            <h2>Filme 3</h2>
-            <a href="pagina.html">Ver Detalhes</a>
+            <img src="https://upload.wikimedia.org/wikipedia/pt/f/fc/Johnny_English_Strikes_Again_poster.jpg" alt="Filme 2">
+            <h2>Johnny English 3.0</h2>
+            <a href="Johnny_English.html">Ver Detalhes</a>
         </div>
 
         <!-- Filme 4 -->
         <div class="filme">
-            <img src="caminho_para_imagem_filme_4.jpg" alt="Filme 4">
-            <h2>Filme 4</h2>
-            <a href="pagina.html">Ver Detalhes</a>
+            <img src="https://upload.wikimedia.org/wikipedia/pt/e/ea/The_road_to_el_dorado_poster_promocional.jpg" alt="Filme 3">
+            <h2>O Caminho para El Dorado</h2>
+            <a href="O_Caminho_para_El_Dorado.html">Ver Detalhes</a>
         </div>
 
         <!-- Filme 5 -->
         <div class="filme">
-            <img src="caminho_para_imagem_filme_5.jpg" alt="Filme 5">
-            <h2>Filme 5</h2>
-            <a href="pagina.html">Ver Detalhes</a>
+            <img src="https://upload.wikimedia.org/wikipedia/pt/0/05/The_Curious_Case_of_Benjamin_Button.jpg" alt="Filme 4">
+            <h2>O Curioso Caso de Benjamin Button</h2>
+            <a href="O_Curioso_Caso_de_Benjamin_Button.html">Ver Detalhes</a>
+        </div>
+
+        <!-- Filme 5 -->
+        <div class="filme">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/9/9b/Avengers_Endgame.jpg" alt="Filme 5">
+            <h2>Vingadores: Ultimato</h2>
+            <a href="Vingadores_Ultimato.html">Ver Detalhes</a>
         </div>
 
         <!-- Adicione mais blocos de código para outros filmes -->
         <!-- ...
-
     </div>
 </body>
 </html>
+
