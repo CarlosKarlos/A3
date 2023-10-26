@@ -103,14 +103,14 @@
 <div class="filme">
     <img src="https://upload.wikimedia.org/wikipedia/pt/6/6d/City_Angels_poster.jpg" alt="Filme 1">
     <h2>Cidade dos Anjos</h2>
-    <a href="Cidade dos Anjos.html?filme=1">Ver Detalhes</a>
+    <a href="Cidade_dos_Anjos.html?filme=1">Ver Detalhes</a>
 </div>
 
 <!-- Filme 2 -->
 <div class="filme">
     <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/a/a6/DragonballEvolution.jpg/230px-DragonballEvolution.jpg" alt="Filme 2">
     <h2>DragonBallEvolution</h2>
-    <a href="pagina_filme.php?filme=2">Ver Detalhes</a>
+    <a href="DragonBallEvolution.html?filme=2">Ver Detalhes</a>
 </div>
 
 <!-- Adicione links semelhantes para os outros filmes -->
